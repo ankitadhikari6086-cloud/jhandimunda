@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e85d04">
+<title>Langur Burja – Dashain Special 🪁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/livekit-client@2.5.7/dist/livekit-client.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+</head><body>
+
+<!-- decorative sky: kites (changa chet) drifting around -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="kite" viewBox="0 0 60 110">
+  <path d="M30 2 L58 36 L30 78 L2 36 Z" fill="currentColor"/>
+  <path d="M30 2 L30 78 M2 36 L58 36" stroke="#fff" stroke-opacity=".7" stroke-width="2" fill="none"/>
+  <path d="M30 2 L58 36 L30 36 Z" fill="#fff" fill-opacity=".25"/>
+  <path d="M30 78 q-8 10 0 18 t0 14" stroke="currentColor" stroke-width="2.5" fill="none"/>
+  <circle cx="30" cy="88" r="4" fill="#ffd23f"/><circle cx="30" cy="102" r="4" fill="#fff"/>
+ </symbol>
+</defs></svg>
+<div class="sky" aria-hidden="true">
+ <svg class="kite k1"><use href="#kite"/></svg><svg class="kite k2"><use href="#kite"/></svg>
+ <svg class="kite k3"><use href="#kite"/></svg><svg class="kite k4"><use href="#kite"/></svg>
+ <svg class="kite k5"><use href="#kite"/></svg>
+</div>
+<div class="garland" aria-hidden="true"></div>
+
+<header class="top">
+ <div class="logo"><span class="tika" aria-hidden="true"></span><div><h1>Langur Burja</h1><small class="np">लङ्गुर बुर्जा · शुभ दशैं 🙏</small></div></div>
+ <span class="pill">🎉 Dashain Special · free play</span>
+</header>
+<div id="status" role="status" aria-live="polite"></div>
+
+<main id="home">
+ <section class="hero">
+  <p class="np big">शुभ बिजया दशमी!</p>
+  <h2>Dashain night. Six dice. Your whole gang.</h2>
+  <p>Roll the dice, shout your symbol, and laugh together on voice — just like the family chowk during Dashain.</p>
+  <div class="hero-dice" aria-hidden="true"><span>🚩</span><span>👑</span><span>♥️</span><span>♠️</span><span>♦️</span><span>♣️</span></div>
+ </section>
+
+ <section class="card board" id="playBox">
+  <h2>Enter the Chowk</h2>
+  <label>Your name (2–24 chars)
+   <span class="inline"><input id="name" maxlength="24" autocomplete="nickname" placeholder="e.g. Lucky Langur">
+   <button type="button" id="rndName" class="alt small" title="Surprise me!">🎲 Surprise me</button></span></label>
+  <label>Room code (4–8 letters/numbers)
+   <span class="inline"><input id="code" maxlength="8" autocapitalize="characters" autocomplete="off" placeholder="e.g. DASHAIN">
+   <button type="button" id="rndCode" class="alt small" title="Make a lucky code">🪁 Lucky code</button></span></label>
+  <p class="hint">Starting a game? Pick any free code (or leave blank for a random one). Joining? Type the code your friend shared.</p>
+  <label>Room name (optional, for new rooms)
+   <input id="title" maxlength="40" placeholder="Tika Night Special"></label>
+  <div class="chips" id="titleChips" aria-label="Room name ideas">
+   <button type="button" class="chip">🪔 Tika Night</button><button type="button" class="chip">👨‍👩‍👧 Family Chowk</button>
+   <button type="button" class="chip">🪁 Kite Gang</button><button type="button" class="chip">🎊 Bijaya Dashami</button>
+  </div>
+  <div class="row cta"><button id="create">🎉 Create room</button><button id="join" class="alt">🚪 Join room</button></div>
+ </section>
+
+ <section class="how">
+  <h3>How to play</h3>
+  <ol>
+   <li><b>1</b><span>Create a room &amp; share the code</span></li>
+   <li><b>2</b><span>Everyone picks a symbol</span></li>
+   <li><b>3</b><span>Host rolls the 6 dice</span></li>
+   <li><b>4</b><span>See what the dice show!</span></li>
+  </ol>
+ </section>
+</main>
+
+<main id="room" hidden>
+ <section class="room-head">
+  <div><small class="np">दशैं रुम</small><h2 id="rTitle"></h2></div>
+  <div class="ticket"><span>ROOM CODE</span><strong id="rCode"></strong></div>
+  <div class="row"><button id="copy" class="alt small">🔗 Copy invite link</button><button id="leave" class="danger small">Leave room</button></div>
+ </section>
+
+ <section class="card stage"><h3>🎲 Dashain Dice Round</h3><div id="game"></div></section>
+
+ <div class="grid">
+  <section class="card"><h3>👥 Players</h3><ul id="members"></ul><p id="empty" hidden>Nobody here yet.</p></section>
+  <section class="card"><h3>🎙 Voice chat</h3>
+   <p id="vStatus">Voice is off. Your microphone is only used after you click Join Voice.</p>
+   <div class="row"><button id="vJoin">🎙 Join voice</button><button id="vMute" class="alt" hidden>Mute</button><button id="vLeave" class="danger" hidden>Leave voice</button></div>
+   <div id="audio" hidden></div></section>
+ </div>
+ <details class="card"><summary>Help &amp; privacy</summary>
+  <p>Voice is never recorded. If the mic is blocked, allow it in your browser's site settings (padlock icon) and press Join voice again.</p>
+  <p>We keep your display name, room membership and symbol picks while you are in a room. No account is needed; closing the browser ends your guest session.</p></details>
+</main>
+<footer class="foot">Made with ❤️ for Dashain · शुभ दशैं! · Free play only, no money involved</footer>
+<div id="petals" aria-hidden="true"></div>
+<script type="module" src="js/app.js"></script>
+</body></html>

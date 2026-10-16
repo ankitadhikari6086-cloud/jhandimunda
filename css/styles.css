@@ -1,0 +1,163 @@
+/* Langur Burja – Dashain Special theme
+   Palette: marigold, vermilion tika red, leaf green, sky gold */
+:root{
+  --bg:#fff4d6;--fg:#3b1f0e;--card:#fffdf6;--bd:#f2c76b;
+  --red:#d62828;--red2:#9d0208;--org:#f77f00;--gold:#ffba08;--green:#2a9d4a;--sky:#bfe6ff;--pink:#e5195f;
+  --ac:var(--red);--ac2:#0b6e99;
+  --r:20px;--shadow:0 6px 0 rgba(157,2,8,.18),0 14px 28px rgba(157,2,8,.12);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#ffb347}
+body{margin:0;font:17px/1.55 "Mukta",system-ui,sans-serif;color:var(--fg);min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(255,255,255,.9) 0 6%,transparent 22%),
+    radial-gradient(circle at 85% 18%,rgba(255,255,255,.7) 0 5%,transparent 18%),
+    linear-gradient(180deg,#bfe6ff 0%,#ffe9b0 38%,#ffd27a 70%,#ffb347 100%) fixed;
+  overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Yatra One","Mukta",serif;font-weight:400;margin:0;line-height:1.15}
+h2{font-size:clamp(1.5rem,4vw,2.1rem)}h3{font-size:1.35rem;margin-bottom:.6rem;color:var(--red2)}
+.np{font-family:"Yatra One","Mukta",serif}
+
+/* ---------- Sky & decorations ---------- */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.kite{position:absolute;width:64px;height:118px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.15));animation:drift 9s ease-in-out infinite}
+.k1{color:#e5195f;left:4%;top:16%}.k2{color:#2a9d4a;right:6%;top:30%;width:54px;animation-delay:-3s;animation-duration:11s}
+.k3{color:#7b2cbf;left:14%;top:62%;width:48px;animation-delay:-5s;animation-duration:12s}
+.k4{color:#f77f00;right:15%;top:8%;width:72px;animation-delay:-1.5s;animation-duration:10s}
+.k5{color:#0b6e99;right:3%;top:70%;width:50px;animation-delay:-6s}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(-8deg)}50%{transform:translate(22px,-26px) rotate(9deg)}}
+.garland{position:relative;z-index:6;height:34px;
+  background:
+    radial-gradient(circle at 50% 50%,#ff9f1c 0 8px,#f77f00 9px 11px,transparent 12px) 0 0/30px 34px repeat-x,
+    radial-gradient(circle at 50% 50%,#ffd23f 0 8px,#ffba08 9px 11px,transparent 12px) 15px 0/30px 34px repeat-x;
+  filter:drop-shadow(0 3px 3px rgba(157,2,8,.25))}
+.garland::before{content:"";position:absolute;left:0;right:0;top:16px;height:2px;background:#9d0208;z-index:-1}
+.foot{position:relative;z-index:1;text-align:center;padding:1.5rem 1rem 2.5rem;font-weight:600;color:var(--red2)}
+
+/* ---------- Header ---------- */
+.top{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:.8rem 1rem}
+.logo{display:flex;gap:.7rem;align-items:center}
+.logo h1{font-size:clamp(1.6rem,5vw,2.3rem);color:var(--red2);text-shadow:2px 2px 0 #ffd23f}
+.logo small{display:block;color:var(--red);font-size:.95rem}
+.tika{width:44px;height:44px;border-radius:50%;flex:none;
+  background:radial-gradient(circle at 50% 38%,#e5195f 0 22%,transparent 23%),conic-gradient(from 0deg,#ffba08,#f77f00,#ffba08,#f77f00,#ffba08);
+  box-shadow:0 0 0 3px #fff,0 0 0 5px #d62828;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pill{font-size:.85rem;font-weight:800;background:#fff;color:var(--red2);border:2px dashed var(--red);border-radius:99px;padding:.15rem .8rem}
+
+/* ---------- Layout ---------- */
+main{position:relative;z-index:2;max-width:1040px;margin:.5rem auto;padding:0 1rem}
+.card{background:var(--card);border:3px solid var(--bd);border-radius:var(--r);padding:1.1rem 1.2rem;margin-bottom:1.1rem;box-shadow:var(--shadow);position:relative}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin-bottom:1.1rem}.grid .card{margin:0}
+
+/* ---------- Hero ---------- */
+.hero{text-align:center;padding:1.2rem .5rem 1.4rem}
+.hero .big{font-size:1.4rem;color:var(--red);margin:0 0 .3rem}
+.hero h2{color:var(--red2);max-width:720px;margin:0 auto .6rem;text-shadow:2px 2px 0 #fff}
+.hero p{max-width:640px;margin:.4rem auto;font-size:1.1rem}
+.hero-dice{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.1rem}
+.hero-dice span{width:64px;height:64px;display:grid;place-items:center;font-size:2rem;background:#fff;border-radius:16px;border:3px solid var(--red);
+  box-shadow:0 5px 0 var(--red2);animation:bob 2.4s ease-in-out infinite}
+.hero-dice span:nth-child(2n){animation-delay:-.6s}.hero-dice span:nth-child(3n){animation-delay:-1.2s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(5deg)}}
+
+/* ---------- Lobby card ---------- */
+.board{max-width:640px;margin:0 auto 1.2rem;border-color:var(--red);background:linear-gradient(180deg,#fffdf6,#fff1c9)}
+.board::before,.board::after{content:"🪔";position:absolute;top:-18px;font-size:2rem;animation:flick 1.6s ease-in-out infinite}
+.board::before{left:18px}.board::after{right:18px;animation-delay:-.8s}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-3deg)}50%{transform:scale(1.15) rotate(4deg)}}
+.board h2{color:var(--red2);margin-bottom:.4rem}.ico{display:inline-block}
+label{display:block;margin:.7rem 0;font-weight:800;color:var(--red2)}
+input{display:block;width:100%;min-height:50px;padding:.5rem .9rem;border:3px solid var(--bd);border-radius:14px;background:#fff;color:var(--fg);font:inherit;font-weight:600;transition:border-color .15s,box-shadow .15s}
+input:focus{border-color:var(--org);box-shadow:0 0 0 4px rgba(247,127,0,.25);outline:none}
+.inline{display:flex;gap:.5rem;margin-top:.25rem;align-items:stretch}.inline input{flex:1;min-width:0}.inline button{white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.2rem 0 .3rem}
+.chip{min-height:36px;padding:.15rem .8rem;border:2px solid var(--gold);background:#fff8dc;color:var(--red2);border-radius:99px;font-size:.9rem;box-shadow:none}
+.chip:hover{background:var(--gold);transform:translateY(-2px)}
+.cta{margin-top:1rem}.cta button{flex:1 1 180px;min-height:56px;font-size:1.15rem}
+
+/* ---------- Buttons ---------- */
+button{min-height:46px;padding:.45rem 1.1rem;border:3px solid var(--red2);background:linear-gradient(180deg,#ff5d3a,var(--red));color:#fff;border-radius:14px;font:inherit;font-weight:800;cursor:pointer;
+  box-shadow:0 4px 0 var(--red2);transition:transform .12s,box-shadow .12s,filter .12s}
+button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 0 var(--red2);filter:brightness(1.05)}
+button:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--red2)}
+button.alt{background:#fff;color:var(--green);border-color:var(--green);box-shadow:0 4px 0 #1b6e32}
+button.alt:hover:not(:disabled){box-shadow:0 6px 0 #1b6e32}
+button.danger{background:#fff;color:var(--red);border-color:var(--red);box-shadow:0 4px 0 var(--red2)}
+button.small{min-height:38px;padding:.2rem .8rem;font-size:.92rem}
+button:disabled{opacity:.55;cursor:wait}
+:focus-visible{outline:4px solid var(--ac2);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem;align-items:center}.between{justify-content:space-between}
+.hint{font-size:.9rem;opacity:.85;margin:.25rem 0}
+
+/* ---------- How to play ---------- */
+.how{max-width:900px;margin:0 auto 1rem;text-align:center}
+.how h3{color:var(--red2);font-size:1.5rem;text-shadow:1px 1px 0 #fff}
+.how ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem}
+.how li{background:rgba(255,255,255,.85);border:3px solid var(--gold);border-radius:18px;padding:.8rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-weight:700}
+.how b{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font-family:"Yatra One";font-size:1.2rem;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--gold)}
+
+/* ---------- Toast status ---------- */
+#status{position:fixed;left:50%;top:48px;transform:translate(-50%,-30px);z-index:50;max-width:min(92vw,520px);padding:.6rem 1.2rem;border-radius:99px;font-weight:800;text-align:center;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+#status:not(:empty){opacity:1;transform:translate(-50%,0)}
+#status.err{background:#fff0ee;color:#8c0a00;border:3px solid var(--red)}
+#status.ok{background:#eaffef;color:#14501f;border:3px solid var(--green)}
+
+/* ---------- Room ---------- */
+.room-head{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;justify-content:space-between;margin:.5rem 0 1.1rem;padding:1rem 1.2rem;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--red),#f77f00);color:#fff;border:3px solid #fff;box-shadow:var(--shadow)}
+.room-head h2{color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.2)}.room-head small{opacity:.9;font-size:1rem}
+.room-head button.alt,.room-head button.danger{box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.ticket{background:#fff8dc;color:var(--red2);border:3px dashed var(--red2);border-radius:14px;padding:.2rem 1rem;text-align:center;line-height:1.2;transform:rotate(-2deg)}
+.ticket span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.15em}.ticket strong{font-family:"Yatra One";font-size:1.7rem;letter-spacing:.12em}
+.stage{background:radial-gradient(circle at 50% 0,#fff7d6,#ffe39a);border-color:var(--red);padding-bottom:1.4rem}
+.stage>h3{text-align:center;font-size:1.6rem}
+#game{text-align:center}#game p{margin:.4rem 0}
+#game h4{font-size:1.5rem;color:var(--red);margin:.2rem 0 .4rem;display:inline-block;padding:.1rem 1.2rem;background:#fff;border:3px solid var(--red);border-radius:99px}
+
+/* symbol picker = tiles on the langur burja cloth */
+.symbols{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;max-width:520px;margin:.8rem auto;padding:.8rem;border-radius:22px;background:linear-gradient(135deg,#9d0208,#d62828);border:4px solid var(--gold);box-shadow:inset 0 0 0 3px rgba(255,255,255,.3),var(--shadow)}
+.symbols button{min-height:0;aspect-ratio:1;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1;background:#fffdf0;color:var(--fg);border:3px solid var(--gold);box-shadow:0 5px 0 #b87400;border-radius:18px;padding:.2rem;display:grid;place-items:center}
+.symbols button small{font-family:"Mukta";font-size:.75rem;font-weight:800;color:var(--red2);text-transform:capitalize;margin-top:-.3rem}
+.symbols button:hover:not(:disabled){background:#fff3b0}
+.symbols button[aria-pressed=true]{background:#d9ffe1;border-color:var(--green);box-shadow:0 0 0 5px rgba(42,157,74,.45),0 5px 0 #1b6e32;transform:scale(1.06)}
+
+/* ---------- DICE (big!) ---------- */
+.dice{display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;align-items:center;gap:clamp(1rem,3vw,1.8rem) 1rem;max-width:560px;margin:1.2rem auto 1rem;padding:1.6rem 1rem 1.4rem;border-radius:26px;
+  background:radial-gradient(ellipse at 50% 30%,#1f8a4c,#0f5f33 70%);border:5px solid #7a3b12;box-shadow:inset 0 0 40px rgba(0,0,0,.45),0 8px 18px rgba(0,0,0,.25)}
+.die{--s:clamp(64px,17vw,100px);width:var(--s);height:var(--s);position:relative;perspective:700px}
+.die .cube{position:absolute;inset:0;transform-style:preserve-3d}
+.die .face{position:absolute;inset:0;display:grid;place-items:center;font-size:calc(var(--s)*.52);line-height:1;backface-visibility:hidden;
+  border-radius:calc(var(--s)*.14);border:2px solid #d9c18a;color:#2b2b2b;
+  background:radial-gradient(circle at 30% 25%,#fffdf4,#f3e6bd 75%);box-shadow:inset 0 0 calc(var(--s)*.12) rgba(120,80,20,.35)}
+.die .face.red{color:#c1121f}
+.tally{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:.2rem 0 1rem;font-weight:800;font-size:1.3rem}.tally span{background:#fff;border:3px solid var(--bd);border-radius:99px;padding:.1rem .8rem}
+.die .shadow{position:absolute;left:8%;right:8%;bottom:-14%;height:22%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.65),transparent 70%);opacity:.5}
+.die.mine .shadow{background:radial-gradient(ellipse,rgba(255,210,63,.95),rgba(255,186,8,.4) 55%,transparent 72%);opacity:1;height:30%;bottom:-18%}
+.die.mine .face{border-color:#ffba08}
+.results{max-width:560px;margin:0 auto;display:grid;gap:.5rem}
+.res{display:flex;align-items:center;gap:.6rem;background:#fff;border:3px solid var(--bd);border-radius:16px;padding:.4rem .9rem;font-weight:800;text-align:left}
+.res .sym{font-size:1.6rem}.res .who{flex:1}.res .pts{background:var(--green);color:#fff;border-radius:99px;padding:0 .8rem;font-family:"Yatra One"}
+.res.zero .pts{background:#c9b99a}.res.me{border-color:var(--green);background:#f1fff3}
+.cloth-note{font-size:.8rem;margin-top:.8rem;opacity:.8}
+
+/* ---------- Players ---------- */
+ul{list-style:none;padding:0;margin:0}
+li.m{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:.5rem .6rem;margin-bottom:.4rem;background:#fff;border:3px solid var(--bd);border-radius:16px;font-weight:800;transition:.2s}
+li.speaking{border-color:var(--green);box-shadow:0 0 0 4px rgba(42,157,74,.35);animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(42,157,74,.15)}}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:"Yatra One";font-size:1.25rem;flex:none;border:3px solid #fff;box-shadow:0 0 0 2px var(--bd)}
+.b{font-size:.72rem;font-weight:800;background:#fff3b0;color:var(--red2);border:2px solid var(--gold);border-radius:99px;padding:0 .55rem}
+
+details.card summary{cursor:pointer;font-weight:800;color:var(--red2)}
+
+/* ---------- Petal confetti ---------- */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.petal{position:absolute;top:-30px;font-size:1.6rem;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
+
+@media(max-width:560px){
+  .pill{display:none}.inline{flex-direction:column}.room-head{justify-content:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
